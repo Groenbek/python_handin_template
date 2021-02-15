@@ -15,4 +15,12 @@ def write_list_to_file(output_file, lst):
                 file_object.write(elm + '\n')
 
 """1C that take a csv file and read each row into a list"""
-"""def read_csv(input_file):"""
+def read_csv(input_file):
+    lst = []
+    with open(input_file) as file_object:
+        reader = csv.reader(file_object)
+        header_row = next(reader)
+
+        for row in reader:
+            lst.append(row)
+    return lst
